@@ -795,7 +795,7 @@ checksum = "1aab8fc367588b89dcee83ab0fd66b72b50b72fa1904d7095045ace2b0c81c35"
 
 [[package]]
 name = "karlsen-miner"
-version = "0.0.1-GPU-0.1"
+version = "0.0.3-GPU-0.1"
 dependencies = [
  "async-trait",
  "blake2b_simd",
@@ -834,7 +834,7 @@ dependencies = [
 ]
 
 [[package]]
-name = "kaspacuda"
+name = "karlsencuda"
 version = "0.1.0"
 dependencies = [
  "clap",
@@ -847,7 +847,7 @@ dependencies = [
 ]
 
 [[package]]
-name = "kaspaopencl"
+name = "karlsenopencl"
 version = "0.1.0"
 dependencies = [
  "clap",
