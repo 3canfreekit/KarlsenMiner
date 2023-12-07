@@ -16,7 +16,7 @@ packages in the workspace. To compile a specific package, you run the following 
 ```sh
 git clone https://github.com/karlsen-network/karlsen-miner
 cd karlsen-miner
-cargo build --release -p karlsen-miner -p kaspacuda -p kaspaopencl
+cargo build --release -p karlsen-miner -p karlsencuda -p karlsenopencl
 ```
 And, the miner (and plugins) will be in `targets/release`. You can replace the last line with
 ```sh
@@ -29,23 +29,24 @@ The [release page](https://github.com/tmrlvi/karlsen-miner/releases) includes pr
 ### Removing Plugins
 To remove a plugin, you simply remove the corresponding `dll`/`so` for the directory of the miner. 
 
-* `libkaspacuda.so`, `libkaspacuda.dll`: Cuda support for karlsen-miner
-* `libkaspaopencl.so`, `libkaspaopencl.dll`: OpenCL support for karlsen-miner
+* `libkarlsencuda.so`, `libkarlsencuda.dll`: Cuda support for karlsen-miner
+* `libkarlsenopencl.so`, `libkarlsenopencl.dll`: OpenCL support for karlsen-miner
 
 # Usage
 To start mining, you need to run [karlsend](https://github.com/karlsen-network/karlsend) and have an address to send the rewards to.
 Here is a guidance on how to run a full node and how to generate addresses: https://github.com/kaspanet/docs/blob/main/Getting%20Started/Full%20Node%20Installation.md
+#### @TODO update docs
 
 Help:
 ```
 karlsen-miner 
-A Kaspa high performance CPU miner
+A Karlsen high performance CPU miner
 
 USAGE:
     karlsen-miner [OPTIONS] --mining-address <MINING_ADDRESS>
 
 OPTIONS:
-    -a, --mining-address <MINING_ADDRESS>                  The Kaspa address for the miner reward
+    -a, --mining-address <MINING_ADDRESS>                  The Karlsen address for the miner reward
         --cuda-device <CUDA_DEVICE>                        Which CUDA GPUs to use [default: all]
         --cuda-disable                                     Disable cuda workers
         --cuda-lock-core-clocks <CUDA_LOCK_CORE_CLOCKS>    Lock core clocks eg: ,1200, [default: 0]
@@ -75,13 +76,13 @@ OPTIONS:
 
 To start mining, you just need to run the following:
 
-`./karlsen-miner --mining-address kaspa:XXXXX`
+`./karlsen-miner --mining-address karlsen:XXXXX`
 
 This will run the miner on all the available GPU devcies.
 
 # Devfund
 
-The devfund is a fund managed by the Kaspa community in order to fund Kaspa development <br>
+The devfund is a fund managed by the Karlsen community in order to fund Karlsen development <br>
 A miner that wants to mine higher percentage into the dev-fund can pass the following flags: <br>
 `--devfund-precent=XX.YY` to mine only XX.YY% of the blocks into the devfund.
 
@@ -90,6 +91,5 @@ Due to community decision, the minimum amount in the precompiled binaries is 2%*
 
 # Donation Addresses
 
-**Elichai**: `kaspa:qzvqtx5gkvl3tc54up6r8pk5mhuft9rtr0lvn624w9mtv4eqm9rvc9zfdmmpu`
+**RoboticWF**: `karlsen:qq6xkkf2t209dmlhmffshdagnkkhzufc5xdt03c3psgxv5yk7panqzwdm0pwp`
 
-**HauntedCook**: `kaspa:qz4jdyu04hv4hpyy00pl6trzw4gllnhnwy62xattejv2vaj5r0p5quvns058f`
