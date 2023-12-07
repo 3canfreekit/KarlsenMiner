@@ -31,7 +31,7 @@ mod target;
 mod watch;
 
 //remove the opencl plugin support for the moment
-//const WHITELIST: [&str; 4] =arlsen", "libkarlsenopencl", "karlsencuda", "karlsenopencl"];
+//const WHITELIST: [&str; 4] = ["libkarlsencuda", "libkarlsenopencl", "karlsencuda", "karlsenopencl"];
 const WHITELIST: [&str; 2] = ["libkarlsencuda", "karlsencuda"];
 
 pub mod proto {
@@ -70,13 +70,14 @@ fn filter_plugins(dirname: &str) -> Vec<String> {
     }
 }
 
-async fn get_clientrlsend: String,
+async fn get_client(
+    karlsend_address: String,
     mining_address: String,
     mine_when_not_synced: bool,
     block_template_ctr: Arc<AtomicU16>,
 ) -> Result<Box<dyn Client + 'static>, Error> {
     if karlsend_address.starts_with("stratum+tcp://") {
-        let (_schema, address)rlsend.split_once("://").unwrap();
+        let (_schema, address) = karlsend_address.split_once("://").unwrap();
         Ok(StratumHandler::connect(
             address.to_string().clone(),
             mining_address.clone(),
@@ -84,9 +85,9 @@ async fn get_clientrlsend: String,
             Some(block_template_ctr.clone()),
         )
         .await?)
-    } else rlsend.starts_with("grpc://") {
-        arlsen::connect(
-rlsend.clone(),
+    } else if karlsend_address.starts_with("grpc://") {
+        Ok(KarlsendHandler::connect(
+            karlsend_address.clone(),
             mining_address.clone(),
             mine_when_not_synced,
             Some(block_template_ctr.clone()),
